@@ -134,7 +134,8 @@ local function handler(key, info, mode)
 
       return info.pair .. (mode == "insert" and "<C-G>U<Left>" or "<Left>")
    else
-      return key
+      -- this fix makes me sad, but it respects my mapping of <C-H> to <C-W>
+      return key == "<C-H>" and "<C-W>" or key
    end
 end
 
